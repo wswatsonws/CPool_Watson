@@ -10,7 +10,7 @@ int my_print_revalpha(void)
 {
 	char j;
 	j = 'z';
-	while(j>='a')
+	while(j >= 'a')
 	{
 		my_putchar(j);
 		j--;

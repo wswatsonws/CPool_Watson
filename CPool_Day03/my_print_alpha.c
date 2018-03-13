@@ -10,7 +10,7 @@ int my_print_alpha(void)
 {
 	char i;
 	i = 'a';
-	while(i<='z')
+	while(i <= 'z')
 	{
 		my_putchar(i);
 		i++;

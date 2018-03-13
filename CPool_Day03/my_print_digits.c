@@ -8,8 +8,8 @@ void my_putchar(char c)
 
 int my_print_digits(void)
 {
-	char k='0';
-	while(k<='9')
+	char k = '0';
+	while(k <= '9')
 	{
 		my_putchar(k);
 		k++;
