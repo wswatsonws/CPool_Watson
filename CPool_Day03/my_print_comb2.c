@@ -9,7 +9,10 @@ void my_putchar(char c)
 int my_print_comb2(void)
 {
 	int num = 0;
-	int a,b,c,d = 0;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
 	while(num <= 9999)
 	{
 		a = num / 1 % 10;
