@@ -3,7 +3,6 @@
 
 int my_compute_factorial_it(int nb )
 {
-	//int i = 2;
 	int fac = 1;
 	if (nb == 0 || nb == 1)
 	{
