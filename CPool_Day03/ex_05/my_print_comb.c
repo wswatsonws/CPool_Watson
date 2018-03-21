@@ -20,20 +20,17 @@ int my_print_comb(void)
 			char d = a + '0';
 			char e = b + '0';
 			char f = c + '0';
-			if(d != '7' && e != '8' && f != '9')
-			{
+	
 				my_putchar(d);
 				my_putchar(e);
 				my_putchar(f);
-				my_putchar(',');
-				my_putchar(' ');
-			}
-			
+				if(num != 789)
+				{
+					my_putchar(',');
+					my_putchar(' ');
+				}
 		}
 		num++;
 	}
-	my_putchar('7');
-	my_putchar('8');
-	my_putchar('9');
 	return 0;
 }
