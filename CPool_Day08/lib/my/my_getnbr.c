@@ -1,58 +1,36 @@
-#include<stdio.h>
-#include<unistd.h>
+#include <stdio.h>
 
-int my_atoi(const char *str);
-
-int my_strlen( char const *str);
-
-int my_strcmp( char const *s1, char const *s2);
-
-char * my_evil_str(char *str);
-
-int my_getnbr(char const  *str) 
+int my_strlen ( char const * str );
+int my_getnbr(char const *str)
 {
-	int len = my_strlen(str);
-	int i = 0;
-	int j = 0;
-	int countnb = 0;
-	int countmi = 0;
-	int countpl = 0;
-	while(i < len)
+	long res=0;
+	int flag=1;
+	int isnum=0;
+	int len=my_strlen(str);
+	int INT_MAX=2147483647;
+	int INT_MIN=-2147483648;
+	for(int i=0;i<len;i++)
 	{
-		if(str[i] == '+')
-			countpl++;
-		if(str[i] == '-')
-			countmi++;
-		if(str[i] >='0' && str[i] <= '9' )
+		if((str[i]<'0'||str[i]>'9')&&(str[i]!='+'&&str[i]!='-'))
 		{
-			countnb++;
-			if(str[i+1] < '0' || str[i+1] > '9')
-				break;
-		}
-		if( (!(str[i] >='0' && str[i] <= '9')) && (str[i] != '-' && str[i] != '+') )
 			break;
-		i++;
-	}
-	char store[countnb];
-	store[countnb] = '\0';
-	int count = countnb-1;
-	while(j <= i)
-	{
-		if(str[j] >= '0' && str[j] <= '9')
-		{
-			store[count] = str[j];
-			count--;
 		}
-		j++;
+		else if(str[i]=='+'||str[i]=='-')
+		{
+			if(isnum==1)
+				break;
+			else if(str[i]=='+')
+				flag=1;
+			else
+				flag=0;
+		}
+		else
+		{
+			isnum=1;
+			res=res*10+(str[i]-'0');
+			if(res>INT_MAX||res<INT_MIN)
+				return 0;
+		}
 	}
-	char *stm = my_evil_str(store);
-	int ret = my_atoi(stm);
-	if(my_strcmp(store,"2147483648") == 1)
-		ret =0;
-	if(my_strlen(store) >= 10)
-		ret = 0;
-	if (countmi % 2 == 1)
-		ret = ret * (-1);
-	printf("%d",ret);
-	return 0;
+	return flag?res:-res;
 }

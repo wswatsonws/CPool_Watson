@@ -9,14 +9,6 @@ int my_strlen(char const *str);
 
 char *my_strcat(char *dest , char const *src);
 
-struct info_param
-{
-int length ;
-char * str ;
-char * copy ;
-char ** word_array ;
-};
-
 int my_show_word_array(char * const *tab)
 {
 	int len = 0;
